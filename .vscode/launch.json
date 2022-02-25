@@ -88,11 +88,11 @@
         {
             "type": "node",
             "request": "launch",
-            "name": "Hardhat Accounts",
+            "name": "Hardhat Deploy Eth",
             "runtimeExecutable": "npm",
             "runtimeArgs": [
                 "run",
-                "accounts"
+                "deploy eth"
             ],
             "outputCapture": "std",
             "cwd": "${workspaceFolder}/",
@@ -102,25 +102,11 @@
         {
             "type": "node",
             "request": "launch",
-            "name": "Hardhat Deploy Script",
+            "name": "Hardhat Deploy ZKSync",
             "runtimeExecutable": "npm",
             "runtimeArgs": [
                 "run",
-                "deploy script"
-            ],
-            "outputCapture": "std",
-            "cwd": "${workspaceFolder}/",
-            "console": "integratedTerminal",
-            "args": []
-        },
-        {
-            "type": "node",
-            "request": "launch",
-            "name": "Hardhat Deploy Script ZKSync",
-            "runtimeExecutable": "npm",
-            "runtimeArgs": [
-                "run",
-                "deploy script ZKS"
+                "deploy ZKS"
             ],
             "outputCapture": "std",
             "cwd": "${workspaceFolder}/",

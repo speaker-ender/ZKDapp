@@ -1,22 +1,25 @@
+import * as dotenv from "dotenv";
 import { HardhatRuntimeEnvironment } from 'hardhat/types';
 import * as ethers from "ethers";
 import * as zk from 'zksync-web3';
 import { Deployer } from '@matterlabs/hardhat-zksync-deploy';
 
+dotenv.config();
+
 // An example of a deploy script which will deploy and call a simple contract.
 export default async function (hre: HardhatRuntimeEnvironment) {
-  console.log('trying to deploy');
+  // console.log('trying to deploy');
   // Initialize an Ethereum wallet.
   const testMnemonic = 'stuff slice staff easily soup parent arm payment cotton trade scatter struggle';
-  const zkWallet = zk.Wallet.fromMnemonic(testMnemonic, "m/44'/60'/0'/0/0");
-  console.log('created wallet: ', zkWallet);
+  const zkWallet = new zk.Wallet(process.env.TEST_WALLET_PRIVATE_KEY);
+  // console.log('created wallet: ', zkWallet);
   // Create deployer object and load desired artifact.
   const deployer = new Deployer(hre, zkWallet);
-  console.log('got deployer: ', deployer);
+  // console.log('got deployer: ', deployer);
   // Deposit some funds to L2 in order to be able to perform deposits.
   const depositAmount = ethers.utils.parseEther('0.001');
-  console.log('set amount, going to deposit');
-  console.log(await deployer.ethWallet.getBalance());
+  // console.log('set amount, going to deposit');
+  // console.log(await deployer.ethWallet.getBalance());
   const depositHandle = await deployer.zkWallet.deposit({
     to: deployer.zkWallet.address,
     token: zk.utils.ETH_ADDRESS,

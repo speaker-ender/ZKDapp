@@ -1,29 +1,19 @@
 import * as dotenv from "dotenv";
 
 import { HardhatUserConfig } from "hardhat/config";
-// import "tsconfig-paths/register";
+import "tsconfig-paths/register";
 import "@typechain/hardhat";
-// import "@nomiclabs/hardhat-ethers";
-// import "@nomiclabs/hardhat-etherscan";
-import "@nomiclabs/hardhat-waffle";
-import "@nomiclabs/hardhat-web3";
 import "@matterlabs/hardhat-zksync-deploy";
 import "@matterlabs/hardhat-zksync-solc";
-// import "hardhat-gas-reporter";
-// import "hardhat-deploy";
-// import "hardhat-deploy-ethers";
-// import "solidity-coverage";
+import "solidity-coverage";
 
-// dotenv.config();
-
-// You need to export an object to set up your config
-// Go to https://hardhat.org/config/ to learn more
+dotenv.config();
 
 const config: HardhatUserConfig = {
   solidity: "0.8.11",
   zkSyncDeploy: {
-    zkSyncNetwork: "http://127.0.0.1:3050",
-    ethNetwork: "http://127.0.0.1:8545",
+    zkSyncNetwork: "https://zksync2-testnet.zksync.dev",
+    ethNetwork: `https://goerli.infura.io/v3/${process.env.INFURA_KEY}`,
   },
   zksolc: {
     version: "0.1.0",

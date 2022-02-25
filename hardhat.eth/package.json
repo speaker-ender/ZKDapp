@@ -14,9 +14,7 @@
     "cleanTypes": "NODE_OPTIONS=--openssl-legacy-provider hardhat clean",
     "clean and compile": "NODE_OPTIONS=--openssl-legacy-provider hardhat clean && NODE_OPTIONS=--openssl-legacy-provider hardhat compile",
     "test": "NODE_OPTIONS=--openssl-legacy-provider hardhat test",
-    "deploy own script": "NODE_OPTIONS=--openssl-legacy-provider hardhat run ./scripts/deploy.ts --network localhost",
-    "deploy script": "NODE_OPTIONS=--openssl-legacy-provider hardhat deploy --export-all ../deployments/deployments.eth.json",
-    "deploy script ZKS": "NODE_OPTIONS=--openssl-legacy-provider hardhat deploy-zksync",
+    "deploy": "NODE_OPTIONS=--openssl-legacy-provider hardhat deploy --export-all ../deployments/deployments.eth.json",
     "accounts": "NODE_OPTIONS=--openssl-legacy-provider hardhat accounts",
     "clientWalletSetup": "NODE_OPTIONS=--openssl-legacy-provider hardhat clientWalletSetup"
   },
