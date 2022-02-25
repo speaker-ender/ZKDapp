@@ -1,0 +1,159 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "Compile Eth",
+            "runtimeExecutable": "npm",
+            "runtimeArgs": [
+                "run",
+                "compile eth"
+            ],
+            "outputCapture": "std",
+            "cwd": "${workspaceFolder}/",
+            "console": "integratedTerminal",
+            "args": []
+        },
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "Compile ZKS",
+            "runtimeExecutable": "npm",
+            "runtimeArgs": [
+                "run",
+                "compile zks"
+            ],
+            "outputCapture": "std",
+            "cwd": "${workspaceFolder}/",
+            "console": "integratedTerminal",
+            "args": []
+        },
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "Clean Types",
+            "runtimeExecutable": "npm",
+            "runtimeArgs": [
+                "run",
+                "clean types"
+            ],
+            "outputCapture": "std",
+            "cwd": "${workspaceFolder}/",
+            "console": "integratedTerminal",
+            "args": []
+        },
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "Clean and Compile",
+            "runtimeExecutable": "npm",
+            "runtimeArgs": [
+                "run",
+                "clean and compile",
+            ],
+            "outputCapture": "std",
+            "cwd": "${workspaceFolder}/",
+            "console": "integratedTerminal",
+            "args": []
+        },
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "Hardhat Run Eth Node",
+            "runtimeExecutable": "npm",
+            "runtimeArgs": [
+                "run",
+                "run eth node"
+            ],
+            "outputCapture": "std",
+            "cwd": "${workspaceFolder}/",
+            "console": "integratedTerminal",
+            "args": []
+        },
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "Hardhat Run ZKS Node",
+            "runtimeExecutable": "npm",
+            "runtimeArgs": [
+                "run",
+                "run zks node"
+            ],
+            "outputCapture": "std",
+            "cwd": "${workspaceFolder}/",
+            "console": "integratedTerminal",
+            "args": []
+        },
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "Hardhat Accounts",
+            "runtimeExecutable": "npm",
+            "runtimeArgs": [
+                "run",
+                "accounts"
+            ],
+            "outputCapture": "std",
+            "cwd": "${workspaceFolder}/",
+            "console": "integratedTerminal",
+            "args": []
+        },
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "Hardhat Deploy Script",
+            "runtimeExecutable": "npm",
+            "runtimeArgs": [
+                "run",
+                "deploy script"
+            ],
+            "outputCapture": "std",
+            "cwd": "${workspaceFolder}/",
+            "console": "integratedTerminal",
+            "args": []
+        },
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "Hardhat Deploy Script ZKSync",
+            "runtimeExecutable": "npm",
+            "runtimeArgs": [
+                "run",
+                "deploy script ZKS"
+            ],
+            "outputCapture": "std",
+            "cwd": "${workspaceFolder}/",
+            "console": "integratedTerminal",
+            "args": []
+        },
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "Hardhat Test",
+            "runtimeExecutable": "npm",
+            "runtimeArgs": [
+                "run",
+                "test"
+            ],
+            "outputCapture": "std",
+            "cwd": "${workspaceFolder}/",
+            "console": "integratedTerminal",
+            "args": []
+        },
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "Start ZKDapp Client",
+            "runtimeExecutable": "npm",
+            "runtimeArgs": [
+                "run",
+                "start zkdapp client",
+            ],
+            "outputCapture": "std",
+            "cwd": "${workspaceFolder}/",
+            "console": "integratedTerminal",
+            "args": []
+        }
+    ]
+}

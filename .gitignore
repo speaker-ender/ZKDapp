@@ -1,0 +1,9 @@
+.env
+.secrets
+arbitrum
+artifacts
+build
+cache
+deployments
+node_modules
+typechain-types
