@@ -8,33 +8,27 @@ dotenv.config();
 
 // An example of a deploy script which will deploy and call a simple contract.
 export default async function (hre: HardhatRuntimeEnvironment) {
-  // Initialize an Ethereum wallet.
   const zkWallet = new zk.Wallet(process.env.TEST_WALLET_PRIVATE_KEY || "");
-  // console.log('created wallet: ', zkWallet);
-  // Create deployer object and load desired artifact.
   const deployer = new Deployer(hre, zkWallet);
-  // console.log('got deployer: ', deployer);
-  // Deposit some funds to L2 in order to be able to perform deposits.
-  const depositAmount = ethers.utils.parseEther('0.001');
-  // console.log('set amount, going to deposit');
-  // console.log(await deployer.ethWallet.getBalance());
+
+  const artifact = await deployer.loadArtifact('DeadCoin');
+
+  // const deploymentFee = await deployer.estimateDeployFee(artifact, []);
+
+  // const parsedFee = ethers.utils.formatUnits(deploymentFee.toString(), USDC_DECIMALS);
+  // console.log(`The deployment will cost ${parsedFee} USDC`);
+  const depositAmount = ethers.utils.parseEther("0.02");
+
   const depositHandle = await deployer.zkWallet.deposit({
     to: deployer.zkWallet.address,
     token: zk.utils.ETH_ADDRESS,
-    amount: depositAmount.toString(), // TODO: Why parseEther doesn't work?
+    amount: depositAmount,
   });
 
   await depositHandle.wait();
 
-  console.log('tried to deposit funds for deployment');
-  // Load the artifact we want to deploy.
-  const artifact = await deployer.loadArtifact('DeadCoin');
-  console.log('loaded artifact');
-  // Deploy this contract. The returned object will be of a `Contract` type, similarly to ones in `ethers`.
-  // `greeting` is an argument for contract constructor.
   const deadCoin = await deployer.deploy(artifact, []);
-  console.log('should have deployed')
-  // Show the contract info.
+
   const contractAddress = deadCoin.address;
   console.log(`${artifact.contractName} was deployed to ${contractAddress}!`);
 

@@ -5,37 +5,36 @@ import { Deployer } from '@matterlabs/hardhat-zksync-deploy';
 
 // An example of a deploy script which will deploy and call a simple contract.
 export default async function (hre: HardhatRuntimeEnvironment) {
-    // Initialize an Ethereum wallet.
-    const zkWallet = new zk.Wallet(process.env.TEST_WALLET_PRIVATE_KEY || "");
+    // const zkWallet = new zk.Wallet(process.env.TEST_WALLET_PRIVATE_KEY || "");
+    // const deployer = new Deployer(hre, zkWallet);
 
-    // Create deployer object and load desired artifact.
-    const deployer = new Deployer(hre, zkWallet);
+    // const artifact = await deployer.loadArtifact('MediumRareStake');
 
-    // Deposit some funds to L2 in order to be able to perform deposits.
-    const depositAmount = ethers.utils.parseEther('0.001');
-    const depositHandle = await deployer.zkWallet.deposit({
-        to: deployer.zkWallet.address,
-        token: zk.utils.ETH_ADDRESS,
-        amount: depositAmount.toString(), // TODO: Why parseEther doesn't work?
-    });
-    await depositHandle.wait();
+    // const deployments = await deployer.hre.deployments.all();
 
-    // Load the artifact we want to deploy.
-    const artifact = await deployer.loadArtifact('MediumRareStake');
+    // const deadCoinAddress = deployments['DeadCoin'].address;
 
-    // Deploy this contract. The returned object will be of a `Contract` type, similarly to ones in `ethers`.
-    // `greeting` is an argument for contract constructor.
-    const mediumRareStakeContract = await deployer.deploy(artifact, []);
+    // const deploymentFee = await deployer.estimateDeployFee(artifact, [deadCoinAddress]);
+    // console.log(deploymentFee.toString());
 
-    // Show the contract info.
-    const contractAddress = mediumRareStakeContract.address;
-    console.log(`${artifact.contractName} was deployed to ${contractAddress}!`);
+    // const depositHandle = await deployer.zkWallet.deposit({
+    //     to: deployer.zkWallet.address,
+    //     token: zk.utils.ETH_ADDRESS,
+    //     amount: deploymentFee.mul(2),
+    // });
+    // await depositHandle.wait();
 
-    // Call the deployed contract.
-    // const greetingFromContract = await mediumRareStakeContract.greet();
-    // if (greetingFromContract == greeting) {
-    //     console.log(`Contract greets us!`);
-    // } else {
-    //     console.error(`Contract said something unexpected: ${greetingFromContract}`);
-    // }
+    // const mediumRareStakeContract = await deployer.deploy(artifact, [deadCoinAddress]);
+
+    // // Show the contract info.
+    // const contractAddress = mediumRareStakeContract.address;
+    // console.log(`${artifact.contractName} was deployed to ${contractAddress}!`);
+
+    // // Call the deployed contract.
+    // // const greetingFromContract = await mediumRareStakeContract.greet();
+    // // if (greetingFromContract == greeting) {
+    // //     console.log(`Contract greets us!`);
+    // // } else {
+    // //     console.error(`Contract said something unexpected: ${greetingFromContract}`);
+    // // }
 }
