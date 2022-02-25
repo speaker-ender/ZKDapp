@@ -8,10 +8,8 @@ dotenv.config();
 
 // An example of a deploy script which will deploy and call a simple contract.
 export default async function (hre: HardhatRuntimeEnvironment) {
-  // console.log('trying to deploy');
   // Initialize an Ethereum wallet.
-  const testMnemonic = 'stuff slice staff easily soup parent arm payment cotton trade scatter struggle';
-  const zkWallet = new zk.Wallet(process.env.TEST_WALLET_PRIVATE_KEY);
+  const zkWallet = new zk.Wallet(process.env.TEST_WALLET_PRIVATE_KEY || "");
   // console.log('created wallet: ', zkWallet);
   // Create deployer object and load desired artifact.
   const deployer = new Deployer(hre, zkWallet);
@@ -25,7 +23,7 @@ export default async function (hre: HardhatRuntimeEnvironment) {
     token: zk.utils.ETH_ADDRESS,
     amount: depositAmount.toString(), // TODO: Why parseEther doesn't work?
   });
-  console.log('about to wait');
+
   await depositHandle.wait();
 
   console.log('tried to deposit funds for deployment');

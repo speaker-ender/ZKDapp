@@ -6,8 +6,7 @@ import { Deployer } from '@matterlabs/hardhat-zksync-deploy';
 // An example of a deploy script which will deploy and call a simple contract.
 export default async function (hre: HardhatRuntimeEnvironment) {
     // Initialize an Ethereum wallet.
-    const testMnemonic = 'stuff slice staff easily soup parent arm payment cotton trade scatter struggle';
-    const zkWallet = zk.Wallet.fromMnemonic(testMnemonic, "m/44'/60'/0'/0/0");
+    const zkWallet = new zk.Wallet(process.env.TEST_WALLET_PRIVATE_KEY || "");
 
     // Create deployer object and load desired artifact.
     const deployer = new Deployer(hre, zkWallet);
